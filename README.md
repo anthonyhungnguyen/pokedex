@@ -1,2 +1,2 @@
 # pokedex
-react-project
+[Pokedex](https://anthonyhungnguyen.github.io/pokedex/)
