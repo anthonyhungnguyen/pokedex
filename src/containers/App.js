@@ -3,39 +3,50 @@ import CardList from '../components/CardList';
 import SearchBox from '../components/SearchBox';
 import Scroll from '../components/Scroll';
 import ErrorBoundry from '../components/ErrorBoundry';
+import { connect } from 'react-redux';
+import { setSearchField, requestPokemons } from '../actions/actions';
+
+const mapStateToProps = state => {
+	return {
+		searchField : state.searchPokemons.searchField,
+		pokemons    : state.requestPokemons.pokemons,
+		isPending   : state.requestPokemons.isPending,
+		error       : state.requestPokemons.error
+	};
+};
+
+const mapDispatchToProps = dispatch => {
+	return {
+		onSearchChange    : event => dispatch(setSearchField(event.target.value)),
+		onRequestPokemons : () => dispatch(requestPokemons())
+	};
+};
 
 class App extends Component {
 	constructor() {
 		super();
 		this.state = {
-			pokemons    : [],
-			searchField : ''
+			pokemons : []
 		};
 	}
 
-	onSearchChange = event => {
-		this.setState({ searchField: event.target.value });
-	};
-
 	componentDidMount() {
-		fetch('https://raw.githubusercontent.com/Biuni/PokemonGO-Pokedex/master/pokedex.json')
-			.then(response => response.json())
-			.then(poke => this.setState({ pokemons: poke['pokemon'] }));
+		this.props.onRequestPokemons();
 	}
 
 	render() {
-		const { pokemons, searchField } = this.state;
+		const { searchField, onSearchChange, pokemons, isPending } = this.props;
 		const filteredPokemons = pokemons.filter(pokemon =>
 			pokemon.name.toLowerCase().includes(searchField.toLowerCase())
 		);
-		return !pokemons.length ? (
+		return isPending ? (
 			<div className='tc'>
 				<h1 className='f-subheadline lh-title'>Loading</h1>
 			</div>
 		) : (
 			<div className='tc'>
 				<h1 className='f-subheadline lh-title'>Pokedex</h1>
-				<SearchBox onSearchChange={this.onSearchChange} />
+				<SearchBox onSearchChange={onSearchChange} />
 				<Scroll>
 					<ErrorBoundry>
 						<CardList pokemons={filteredPokemons} />
@@ -46,4 +57,4 @@ class App extends Component {
 	}
 }
 
-export default App;
+export default connect(mapStateToProps, mapDispatchToProps)(App);
