@@ -1,23 +1,23 @@
 self.__precacheManifest = [
   {
-    "revision": "94f7180d0d5c74c7cfb1",
-    "url": "/pokedex/static/css/main.789bd1d8.chunk.css"
+    "revision": "5d8f62f47620518b2e8a",
+    "url": "/pokedex/static/css/main.a7fb4fe5.chunk.css"
   },
   {
-    "revision": "94f7180d0d5c74c7cfb1",
-    "url": "/pokedex/static/js/main.94f7180d.chunk.js"
+    "revision": "5d8f62f47620518b2e8a",
+    "url": "/pokedex/static/js/main.5d8f62f4.chunk.js"
   },
   {
     "revision": "c92f8f4bce56a57764ce",
     "url": "/pokedex/static/js/runtime~main.c92f8f4b.js"
   },
   {
-    "revision": "7feee2be329f11b9d047",
-    "url": "/pokedex/static/css/2.b0781358.chunk.css"
+    "revision": "eb696ff8e6d36e484e6c",
+    "url": "/pokedex/static/css/2.743581d1.chunk.css"
   },
   {
-    "revision": "7feee2be329f11b9d047",
-    "url": "/pokedex/static/js/2.7feee2be.chunk.js"
+    "revision": "eb696ff8e6d36e484e6c",
+    "url": "/pokedex/static/js/2.eb696ff8.chunk.js"
   },
   {
     "revision": "7960b3c23c2d312d24d45e2d8551f80e",
@@ -32,7 +32,7 @@ self.__precacheManifest = [
     "url": "/pokedex/static/media/Pokemon Hollow.f0c29fcc.woff"
   },
   {
-    "revision": "129afb2183167d2bcec59db83a9b0995",
+    "revision": "11000c0239a248a890fd5c11663862e1",
     "url": "/pokedex/index.html"
   }
 ];
